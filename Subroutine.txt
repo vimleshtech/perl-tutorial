@@ -1,0 +1,119 @@
+Define and Call a Subroutine
+
+
+#!/usr/bin/perl
+
+# Function definition
+
+
+sub Hi{
+
+   print "Hello, World!\n";
+}
+
+# Function call
+Hi();
+
+
+-----------
+#!/usr/bin/perl
+
+# Function definition
+sub Average {
+   # get total number of arguments passed.
+   $n = scalar(@_);
+   $sum = 0;
+
+   foreach $item (@_) {
+      $sum += $item;
+   }
+   $average = $sum / $n;
+
+   print "Average for the given numbers : $average\n";
+}
+
+# Function call
+Average(10, 20, 30);
+
+
+list to subroutines
+----------
+#!/usr/bin/perl
+
+# Function definition
+sub PrintList {
+   my @list = @_;
+   print "Given list is @list\n";
+}
+$a = 10;
+@b = (1, 2, 3, 4);
+
+# Function call with list parameter
+PrintList($a, @b);
+
+
+
+
+
+
+
+
+# Function definition
+sub Average {
+   # get total number of arguments passed.
+   $n = scalar(@_);
+   $sum = 0;
+
+   foreach $item (@_) {
+      $sum += $item;
+   }
+   $average = $sum / $n;
+
+   return $average;
+}
+
+# Function call
+$num = Average(10, 20, 30);
+print "Average for the given numbers : $num\n";
+
+
+
+
+
+#!/usr/bin/perl
+
+# Global variable
+$string = "Hello, World!";
+
+# Function definition
+sub PrintHello {
+   # Private variable for PrintHello function
+   my $string;
+   $string = "Hello, Perl!";
+   print "Inside the function $string\n";
+}
+# Function call
+PrintHello();
+print "Outside the function $string\n";
+
+
+
+
+
+
+State Variables via state()
+#!/usr/bin/perl
+
+use feature 'state';
+
+sub PrintCount {
+   state $count = 0; # initial value
+
+   print "Value of counter is $count\n";
+   $count++;
+}
+
+for (1..5) {
+   PrintCount();
+}
+

@@ -1,0 +1,220 @@
+print "Hello World! with Perl\n";  
+
+Print abc.pl  
+
+Perl print() and say()
+-------------------------------
+The say() is not supported by the older perl versions. It acts like print() with only difference that it automatically adds a new line at the end without mentioning (\n).
+
+
+
+Input ***** 
+===============================
+my $n = <STDIN>; 
+
+or
+
+my $name = <>; 
+===============================
+
+
+
+example:
+use 5.010;  
+use strict;  
+use warnings;  
+say "Enter your Name:";  
+my $name = <STDIN>;  
+
+
+Perl Data Types
+Perl language is a loosely typed language, the Perl interpreter itself chooses the data type. Hence, there is no need to specify data type in Perl programming.
+
+There are basically three data types in Perl:
+
+Scalars: Perl scalars are a single data item. They are simple variables, preceded by a ($) sign. A scalar can be a number, a reference (address of a variable) or a string.
+Arrays: Perl arrays are an ordered list of scalars. They are preceded by (@) sign and accessed by their index number which starts with 0.
+Hashes: Perl hashes are an unordered collection of key-value pairs. They are preceded by (%) sign and accessed using keys.
+
+
+
+$name = "Anastasia";   
+$rank = "9th";  
+$marks = 756.5;  
+
+
+Perl use strict
+If you are using use strict statement in a program, then you have to declare your variable before using it. It is mandatory. Otherwise you'll get an error.
+
+
+use 5.010;  
+use strict;  
+my $x = 23;  
+say $x;  
+state $name = "Anastasia";   
+say $name;  
+our $rank = "9th";  
+say $rank;  
+use vars qw($marks);  
+$marks = 756.5;  
+say $marks;  
+$Person::name = 'John';  
+say $Person::name;  
+$a = 1224365;  
+say $a;  
+ $b = "Welcome at JavaTpoint";  
+say $b;  
+
+
+## if condition 
+If
+If-else
+If else-if
+
+
+
+if(expression){  
+//code to be executed if condition is true  
+}else{  
+//code to be executed if condition is false  
+} 
+
+
+
+===========================================
+
+print "Enter a Number?\n";  
+
+$num = <STDIN>;  
+
+if( $num %2==0 ){  
+    printf "Even Number\n";  
+}else{   
+    printf "Odd Number\n";  
+}  
+
+
+========
+print ('ente data ')
+$a =<>
+print ('ente data ')
+$b =<>
+print ('ente data ')
+$c =<>
+
+
+if($a > $b && $a > $c)
+{
+	prit..... a si gt
+}
+else if($b > $a && $b > $c)
+{
+
+
+}
+else
+{
+
+
+}
+
+
+if(condition1){  
+//code to be executed if condition1 is true  
+}else if(condition2){  
+//code to be executed if condition2 is true  
+}  
+else if(condition3){  
+//code to be executed if condition3 is true  
+}  
+...  
+else{  
+//code to be executed if all the conditions are false  
+}  
+
+
+Switch Statement
+---------------
+
+use feature qw(switch say);  
+print "Enter a Number\n ";  
+chomp( my $grade = <> );  
+
+given ($grade) {  
+    when ('10') { say 'It is 10' ;}  
+    when ('20') { say 'It is 20' ;}  
+    when ('30') { say 'It is 30' ;}  
+    default { say 'Not 10, 20 or 30';}  
+} 
+
+
+
+# wap to take score in 5 subs  and show total, agv, grade
+	80>   A
+	70> B
+	60>  C
+		d
+
+
+
+
+Perl goto Statement
+The Perl goto statement is the jump statement. It is used to transfer control by jumping to other label inside a loop.
+
+There are three goto forms:
+
+goto LABEL:
+It jumps to the statement labeled with LABEL and resumes normal execution from there.
+
+goto EXPR:
+It is a generalization of goto LABEL. The expression returns a label name and then jumps to that labeled statement.
+
+goto &NAME:
+For currently running subroutine it substitutes a call to the named subroutine.
+
+LOOP:do  
+print "You are not eligible to vote!\n";  
+print "Enter your age\n";  
+$age = <>;  
+    if( $age < 18){   
+       goto LOOP;  
+    }  
+    else{   
+    print "You are eligible to vote\n";   
+} 
+
+
+##
+for( $a = 1; $a <= 10; $a++ ){  
+    print " $a\n";  
+}  
+#nested
+
+
+
+for( $i = 1; $i <= 3; $i++ ){  
+    for( $j = 1; $j <= 3; $j++ ){  
+    print " $i $j\n";  
+}  
+}  
+
+
+
+
+$i = 1;  
+# while loop execution  
+while( $i <= 10 ){  
+   printf "$i\n";  
+   $i++;  
+}
+
+
+@num = (2015, 2016, 2017);               
+@string = ("One", "Two", "Three");  
+print "$num[0]\n";  
+print "$num[1]\n";  
+print "$num[2]\n";  
+print "$string[0]\n";  
+print "$string[1]\n";  
+print "$string[2]\n";  
+

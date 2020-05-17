@@ -1,0 +1,95 @@
+﻿Error Handling
+====================
+The execution and the errors always go together. If you are opening a file which does not exist. then if you did not handle this situation properly then your program is considered to be of bad quality.
+
+
+if(open(DATA, $file)) {
+   ...
+} else {
+   die "Error: Couldn't open the file - $!";
+}
+
+The unless Function
+The unless function is the logical opposite to if: statements can completely bypass the success status and only be executed if the expression returns false. For example −
+
+
+unless(chdir("/etc")) {
+   die "Error: Can't change directory - $!";
+}
+
+
+die "Error: Can't change directory!: $!" unless(chdir("/etc"));
+
+
+The ternary Operator
+
+print(exists($hash{value}) ? 'There' : 'Missing',"\n");
+
+
+The warn Function
+
+chdir('/etc') or warn "Can't change directory";
+
+The die Function
+
+chdir('/etc') or die "Can't change directory";
+
+
+example:
+------------
+package T;
+
+require Exporter;
+@ISA = qw/Exporter/;
+@EXPORT = qw/function/;
+use Carp;
+
+sub function {
+   warn "Error in module!";
+}
+1;
+
+
+
+
+use T;
+function();
+
+
+
+The carp Function
+The carp function is the basic equivalent of warn and prints the message to STDERR without actually exiting the script and printing the script name.
+
+package T;
+
+require Exporter;
+@ISA = qw/Exporter/;
+@EXPORT = qw/function/;
+use Carp;
+
+sub function {
+   carp "Error in module!";
+}
+1;
+
+
+The cluck Function
+The cluck function is a sort of supercharged carp, it follows the same basic principle but also prints a stack trace of all the modules that led to the function being called
+
+
+
+
+
+
+The croak Function
+The croak function is equivalent to die, except that it reports the caller one level up. 
+
+
+
+
+The confess Function
+The confess function is like cluck; it calls die and then prints a stack trace all the way up to the origination script.
+
+
+
+

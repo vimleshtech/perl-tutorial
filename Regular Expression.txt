@@ -1,0 +1,333 @@
+﻿Scalars
+Arrays
+Hashes
+
+Scalars
+==============
+#!/usr/bin/perl
+
+$age = 25;             # An integer assignment
+$name = "John Paul";   # A string 
+$salary = 1445.50;     # A floating point
+
+print "Age = $age\n";
+print "Name = $name\n";
+print "Salary = $salary\n";
+
+
+
+Array Variables
+=================
+
+#!/usr/bin/perl
+
+@ages = (25, 30, 40);             
+@names = ("John Paul", "Lisa", "Kumar");
+
+print "\$ages[0] = $ages[0]\n";
+print "\$ages[1] = $ages[1]\n";
+print "\$ages[2] = $ages[2]\n";
+print "\$names[0] = $names[0]\n";
+print "\$names[1] = $names[1]\n";
+print "\$names[2] = $names[2]\n";
+
+
+
+#!/usr/bin/perl
+
+@days = qw/Mon Tue Wed Thu Fri Sat Sun/;
+
+print "$days[0]\n";
+print "$days[1]\n";
+print "$days[2]\n";
+print "$days[6]\n";
+print "$days[-1]\n";
+print "$days[-7]\n";
+
+
+
+
+
+@var_10 = (1..10);
+@var_20 = (10..20);
+@var_abc = (a..z);
+
+print "@var_10\n";   # Prints number from 1 to 10
+print "@var_20\n";   # Prints number from 10 to 20
+print "@var_abc\n";  # Prints number from a to z
+
+
+
+
+Hash Variables
+==================
+#!/usr/bin/perl
+
+%data = ('John Paul', 45, 'Lisa', 30, 'Kumar', 40);
+
+print "\$data{'John Paul'} = $data{'John Paul'}\n";
+print "\$data{'Lisa'} = $data{'Lisa'}\n";
+print "\$data{'Kumar'} = $data{'Kumar'}\n";
+
+
+
+
+%data = ('John Paul' => 45, 'Lisa' => 30, 'Kumar' => 40);
+
+print "$data{'John Paul'}\n";
+print "$data{'Lisa'}\n";
+print "$data{'Kumar'}\n";
+
+
+Time 
+================
+sec,     # seconds of minutes from 0 to 61
+min,     # minutes of hour from 0 to 59
+hour,    # hours of day from 0 to 24
+mday,    # day of month from 1 to 31
+mon,     # month of year from 0 to 11
+year,    # year since 1900
+wday,    # days since sunday
+yday,    # days since January 1st
+isdst    # hours of daylight savings time
+
+
+@months = qw( Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec );
+@days = qw(Sun Mon Tue Wed Thu Fri Sat Sun);
+
+($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
+print "$mday $months[$mon] $days[$wday]\n";
+
+
+
+
+$datestring = localtime();
+print "Local date and time $datestring\n";
+
+
+
+
+$datestring = gmtime();
+print "GMT date and time $datestring\n";
+
+
+
+($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
+
+printf("Time Format - HH:MM:SS\n");
+printf("%02d:%02d:%02d", $hour, $min, $sec);
+
+
+
+
+#!/usr/local/bin/perl
+
+$datestring = localtime();
+print "Current date and time $datestring\n";
+
+$epoc = time();
+$epoc = $epoc - 12 * 60 * 60;   # one day before of current date.
+
+$datestring = localtime($epoc);
+print "Yesterday's date and time $datestring\n";
+
+
+
+A regular expression is a string of characters that defines the pattern or patterns you are viewing. The syntax of regular expressions in Perl is very similar to what you will find within other regular expression.supporting programs, such as sed, grep, and awk.
+
+The basic method for applying a regular expression is to use the pattern binding operators =~ and !~. The first operator is a test and assignment operator.
+
+There are three regular expression operators within Perl.
+Match Regular Expression - m//
+Substitute Regular Expression - s///
+Transliterate Regular Expression - tr///
+
+The forward slashes in each case act as delimiters for the regular expression (regex) that you are specifying. If you are comfortable with any other delimiter, then you can use in place of forward slash.
+
+---------------------
+The Match Operator
+
+#!/usr/bin/perl
+
+$bar = "This is foo and again foo";
+if ($bar =~ /foo/) {
+   print "First time is matching\n";
+} else {
+   print "First time is not matching\n";
+}
+
+$bar = "foo";
+if ($bar =~ /foo/) {
+   print "Second time is matching\n";
+} else {
+   print "Second time is not matching\n";
+}
+
+
+
+
+
+
+#!/usr/bin/perl
+
+$bar = "This is foo and again foo";
+if ($bar =~ m[foo]) {
+   print "First time is matching\n";
+} else {
+   print "First time is not matching\n";
+}
+
+$bar = "foo";
+if ($bar =~ m{foo}) {
+   print "Second time is matching\n";
+} else {
+   print "Second time is not matching\n";
+}
+
+
+
+
+
+Matching Only Once
+
+There is also a simpler version of the match operator - the ?PATTERN? operator. This is basically identical to the m// operator except that it only matches once within the string you are searching between each call to reset.
+
+For example, you can use this to get the first and last elements within a list −
+
+
+
+
+#!/usr/bin/perl
+
+@list = qw/food foosball subeo footnote terfoot canic footbrdige/;
+
+foreach (@list) {
+   $first = $1 if /(foo.*?)/;
+   $last = $1 if /(foo.*)/;
+}
+print "First: $first, Last: $last\n";
+
+
+
+
+
+
+Char
+
+Meaning
+
+\
+
+Special or quote
+
+*
+
+Match 0 or more characters
+
++
+
+Match 1 or more characters
+
+?
+
+Match 0 or 1 character
+
+|
+
+Can be used to match alternative patterns
+
+()
+
+Used to store the pattern matched
+
+[]
+
+Set of characters can be passed. Specifically used for numeric and alphabets.
+
+{}
+
+Used for providing the number of time the match can be performed.
+
+^
+
+Start of the string
+
+$
+
+End of string
+
+\w
+
+Used to match a single character or word which can be alphanumeric including "_"
+
+\W
+
+Match anything other than alphanumeric
+
+\s
+
+Used to match whitespaces
+
+\S
+
+Match anything other than whitespace
+
+\d
+
+Match numbers. Not decimal values and negative values
+
+\D
+
+Match anything other than numbers.
+
+\t
+
+Match tab space
+
+\n
+
+Match newline
+
+The above are the set of characters which can be used during pattern matching.
+
+Let's see few examples.
+
+Consider a situation where user provides some input during script execution, and we want to check whether the user entered some name as input or not. We have to write a regular expression syntax to extract your name and print the same.
+
+my $userinput="Guru99 Rocks";
+if($userinput=~m/.*(Guru99).*/)
+{
+	print "Found Pattern";
+}
+else
+{
+	print "unable to find the pattern";
+}
+Output:
+
+Found Pattern
+
+Here, we have written the regular expression as /.*(Guru99).*/.* match all characters in a string. A '.' in perl regex match refers to any character including space.
+
+Let us see how exactly we can construct a Regex.
+
+Consider an example of a string of multiple words and digits and special symbols like this "Hello everyone this is my number: +91-99298373639";
+
+Regex : /^\w+\s\w+\s\w+\s\w+\s\w+\s\w+\:\+\d+\-\d+/i
+
+Word space word space word space word space word space word space special character : space special character+digits special character –digits.
+
+Perl Match Operators
+The match operators are used to match a string within some statement or in a variable.
+
+my $var="Hello this is perl";
+if($var=~m/perl/)
+{
+	print "true"; 
+} 
+else
+{
+	print "False"; 
+}
+
+

@@ -1,0 +1,141 @@
+Operator
+Condition
+Loop
+Array
+
+Operator
+--------------------
+Arithmetic:
+	+
+	-
+	*
+	/
+	%
+	example:
+		2+3*4  = 14  
+		(2+3)*4  = 20
+		85/10  = 8.5
+		85%10  = 5 
+Conditional operator:
+	>
+	>=
+	<
+	<=
+	==
+	!- 
+Logical:
+	&&		- and 
+	||		- or 
+
+	and
+	-----
+	T T = T
+	T F = F
+	F T = F
+	F F = F
+
+	or
+	---------
+	T T = T
+	T F = T
+	F T = T
+	F F = F 
+		
+	example:
+	a =100
+	b =22
+	c =3
+
+	if( a>b && a>c)
+	{
+
+
+	}
+	else
+	{
+
+
+	}
+
+Condition: decision making statement
+========================
+-if condition 
+	-if condition 
+	-if else
+	-if elseif else 
+	-nested  if else  : if inside if condition 
+-switch case :
+	a  =1
+	case a
+		when 1
+			....
+		when 2
+			....
+		when 10
+			....
+		defalt
+
+			
+Loop: is iterator or repeation of statement / code / commands
+===================================
+example:
+	1 2 3 ... 100
+
+Fundamental to loop:
+	i = 1   # init /start
+	i < 101 # condition 
+	i++  or i = i+1   # incrementer 
+
+	100 to 1
+
+	i =100
+	i > 0
+	i-- 
+
+
+There are following types of loop:
+	i. while
+	ii. do while
+	iii. for 
+
+	syntax:
+		$i =1  		#init 
+		while ($i < 101) # condition 
+		{
+			print $i
+			or 
+			say $i 
+
+			$i++ or $i = $i +1 # incrementer 
+		}
+	
+		$i =100  		#init 
+		while ($i > 0) # condition 
+		{
+			print $i
+			or 
+			say $i 
+
+			$i-- or $i = $i -1 # decrementer
+		}
+	
+		#do while
+		$i = 1
+		do
+		{
+			print....
+			....
+			$i++
+		}while($i<0)
+
+
+	
+		-for 
+		for($i=0; $i<10; $i++)
+		{
+
+
+
+		}	
+
+		

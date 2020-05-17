@@ -1,0 +1,81 @@
+**chop
+**subword
+
+uc(string)
+lc(string)
+
+ucfirst() – convert the first character of string to upper case
+lcfirst() – convert the first character of a string to lower case
+
+# reverse string
+# $rts now contains ?dood ,pussaW
+
+
+$rts = reverse($str); HI = IH
+$a=length('abba') # $a will be 4
+
+
+#!/usr/bin/perl
+use warnings;
+use strict;
+# extract substring
+
+
+my $s = "Green is my favorite color";
+my $color  = substr($s, 0, 5);      # Green
+my $end    = substr($s, -5);        # color
+
+
+$word = "great";
+$where = index( $sentence, $word);
+print "$sentence \n";
+print "$word begins at character $where \n\n"; 
+
+
+
+chop -- chops the last character off the end of a scalar and returns it.
+•chomp -- a conditional chop which chops a newline or regular expression defined by $/ from the end of the string is it is present.
+
+
+$n = 128;
+chop($n); # returns 12 (128 divided by ten!)
+
+$this_string=subword("Where is this string",3,2) # returns the string "this string" 
+$third_word = subword("Where is this string",3) 
+
+substr($string -2, 2); # two last symbols of the string
+$s ="this is perls sjsjhgshgshfsgs fgsfsgfsgs'
+substr($s, -10) != $var;
+
+
+
+
+
+$name='softpanorama';
+if ( index($name, 's') > -1 ) {
+   printf("String '%s' has 's' in it\n", 
+}
+
+
+
+
+
+$string='softpanorama'; 
+@c = split(//, $string);
+print "$c[0]$c[4]$c[2]$s[-3]$s[3]\n";
+
+
+
+$str1='remember';
+$str2='Perl';
+$str3='warts";
+$left = $str1 . " " . $str2 . " " . $str3;
+$right = "$str1 $str2 $str3";
+
+if ($left == $right) {
+  print "strings are equal\n";
+} else {
+  print "strings are unequal\n"
+}
+
+

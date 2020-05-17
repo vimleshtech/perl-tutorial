@@ -1,0 +1,215 @@
+﻿Directories
+=================
+opendir DIRHANDLE, EXPR  # To open a directory
+readdir DIRHANDLE        # To read a directory
+rewinddir DIRHANDLE      # Positioning pointer to the begining
+telldir DIRHANDLE        # Returns current position of the dir
+seekdir DIRHANDLE, POS   # Pointing pointer to POS inside dir
+closedir DIRHANDLE       # Closing a directory.
+
+
+#!/usr/bin/perl
+
+# Display all the files in /tmp directory.
+
+$dir = "/tmp/*";
+
+my @files = glob( $dir );     ### glob   : read all files and store in array format
+
+foreach (@files ) {#read every element from array  one by one(index will start from 0 
+   print $_ . "\n";  # . current 
+}
+
+
+###
+print $files[0] ; //print first file
+print $files[3] ; //print 4th file
+
+
+
+
+
+# Display all the C source files in /tmp directory.
+$dir = "/tmp/*.c";
+@files = glob( $dir );
+
+foreach (@files ) {
+   print $_ . "\n";
+}
+
+
+# Display all the hidden files.
+$dir = "/tmp/.*";
+
+
+# Display all the files from /tmp and /home directories.
+$dir = "/tmp/* /home/*";
+
+----------------------
+Here is another example, which opens a directory and list out all the files available inside this directory.
+
+#!/usr/bin/perl
+
+opendir (DIR, '.')    or die "Couldn't open directory, $!";
+
+while ($file = readdir DIR) {
+
+   print "$file\n";
+}
+
+
+closedir DIR;
+
+One more example to print the list of C source files you might use is −
+
+#!/usr/bin/perl
+
+opendir(DIR, '.') or die "Couldn't open directory, $!";
+foreach (sort grep(/^.*\.c$/,readdir(DIR))) {
+   print "$_\n";
+}
+closedir DIR;
+
+
+
+
+Create new Directory
+-------------
+
+#!/usr/bin/perl
+
+$dir = "/tmp/perl";
+
+# This creates perl directory in /tmp directory.
+
+mkdir( $dir ) or die "Couldn't create $dir directory, $!";
+
+print "Directory created successfully\n";
+
+
+
+
+remove
+----
+#!/usr/bin/perl
+
+$dir = "/tmp/perl";
+
+# This removes perl directory from /tmp directory.
+rmdir( $dir ) or die "Couldn't remove $dir directory, $!";
+
+print "Directory removed successfully\n";
+
+
+
+
+change directory
+------------------------------
+
+#!/usr/bin/perl
+
+$dir = "/home";
+
+# This changes perl directory  and moves you inside /home directory.
+chdir( $dir ) or die "Couldn't go inside $dir directory, $!";
+print "Your new location is $dir\n";
+
+
+====================================
+====================================
+Three basic file handles are - STDIN, STDOUT, and STDERR, which represent standard input, standard output and standard error devices respectively.
+
+
+
+Opening and Closing Files
+There are following two functions with multiple forms, which can be used to open any new or existing file in Perl.
+
+open FILEHANDLE, EXPR
+open FILEHANDLE
+
+sysopen FILEHANDLE, FILENAME, MODE, PERMS
+sysopen FILEHANDLE, FILENAME, MODE
+
+
+
+
+open file
+=====
+#!/usr/bin/perl
+
+open(DATA, "<file.txt") or die "Couldn't open file file.txt, $!";
+
+while(<DATA>) {
+   print "$_";
+}
+
+
+
+
+
+write content
+----------------
+$i =1;
+while $i<1000
+
+print("enter data")
+$a = <STDIN>;
+
+open($a, ">file.txt") or die "Couldn't open file file.txt, $!";
+
+
+read and write mode
+-------------------
+$d = open(DATA, "+<file.txt"); or die "Couldn't open file file.txt, $!"
+
+while(<DATA>)
+{
+
+	print "$_";
+}
+
+
+
+
+
+truncate then write
+-------------------
+open DATA, "+>file.txt" or die "Couldn't open file file.txt, $!";
+
+
+
+append
+----------
+open(DATA,">>file.txt") || die "Couldn't open file file.txt, $!";
+
+
+
+copy file
+----
+#!/usr/bin/perl
+
+# Open file to read
+open(DATA1, "<file1.txt");
+
+# Open new file to write
+open(DATA2, ">file2.txt");
+
+# Copy data from one file to another.
+while(<DATA1>) {
+   print DATA2 $_;
+}
+close( DATA1 );
+close( DATA2 );
+
+
+rename file
+------
+
+rename ("/usr/test/file1.txt", "/usr/test/file2.txt" );
+
+
+
+delete file
+-----
+unlink ("/usr/test/file1.txt");
+
